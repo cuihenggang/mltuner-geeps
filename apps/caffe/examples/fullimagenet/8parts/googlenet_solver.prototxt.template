@@ -1,0 +1,22 @@
+net: "examples/imagenet/8parts/googlenet_train_val.prototxt.%"
+test_iter: 24
+test_interval: 5000
+test_initialization: false
+display: 20
+average_loss: 20
+# base_lr: 0.01
+base_lr: 0.0036
+# base_lr: 0.00125
+lr_policy: "step"
+# stepsize: 320000
+stepsize: 40000
+gamma: 0.96
+max_iter: 10000000
+# max_iter: 40
+momentum: 0.9
+# weight_decay: 0.0002
+weight_decay: 0.00005
+random_seed: 1234568
+snapshot: 40000000
+snapshot_prefix: "examples/imagenet/8parts/googlenet_snapshot.%"
+solver_mode: GPU

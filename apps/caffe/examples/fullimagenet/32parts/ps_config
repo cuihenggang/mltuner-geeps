@@ -1,0 +1,11 @@
+hostfile=/tank/projects/biglearning/hengganc/LazyTable/applications/caffe/examples/fullimagenet/32parts/machinefile
+num_channels=4
+slack=0
+thread_cache_capacity=0
+gpu_process_cache_capacity=-1
+gpu_local_storage_capacity=-1
+gpu_memory_capacity=9000000
+read_my_writes=0
+batches_per_clock=1
+log_interval=1000
+output_dir=/tank/projects/biglearning/hengganc/output/caffe

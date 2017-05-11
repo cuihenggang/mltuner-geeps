@@ -1,0 +1,1 @@
+pdsh -R ssh -w h[0-7] "cd /users/hengganc/tank/LazyTable/applications/caffe && ./build/tools/caffe_pdsh train --solver=examples/imagenet/8parts/caffenet_solver.prototxt --ps_config=examples/imagenet/8parts/ps_config --num_workers=8 --worker_id=%n" 2>&1 | tee 

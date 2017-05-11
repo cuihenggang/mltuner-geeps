@@ -1,0 +1,17 @@
+num_channels=4
+gpu_memory_capacity=5000000000
+mm_warning_level=2
+layers_per_table=10
+update_func=7
+num_branches=10
+test_batch_size=32
+num_clocks_to_test=200
+num_samples_per_test=160000
+branch_mode=10
+train_lr=0.01
+train_slack=0
+train_batch_size=32
+scheduler_print_interval=0
+spearmint_root=/users/hengganc/spearmint
+app_name=imagenet.slack.batchsize
+debug=0

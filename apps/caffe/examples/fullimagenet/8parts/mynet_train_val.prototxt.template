@@ -1,0 +1,1171 @@
+name: "CaffeNet"
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  transform_param {
+    mirror: true
+    crop_size: 57
+    mean_file: "data/ilsvrc12/imagenet_mean.binaryproto"
+  }
+# mean pixel / channel-wise mean instead of mean image
+#  transform_param {
+#    crop_size: 227
+#    mean_value: 104
+#    mean_value: 117
+#    mean_value: 123
+#    mirror: true
+#  }
+  data_param {
+    source: "/panfs/probescratch/BigLearning/hengganc/data/imagenet-all/8parts/train_lmdb.%"
+    batch_size: 2000
+    backend: LMDB
+  }
+}
+layer {
+  name: "fc0"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "fc0"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+    weight_filler {
+      type: "gaussian"
+      std: 0.005
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.1
+    }
+  }
+}
+layer {
+  name: "fc1"
+  type: "InnerProduct"
+  bottom: "fc0"
+  top: "fc1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc2"
+  type: "InnerProduct"
+  bottom: "fc1"
+  top: "fc2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc3"
+  type: "InnerProduct"
+  bottom: "fc2"
+  top: "fc3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc4"
+  type: "InnerProduct"
+  bottom: "fc3"
+  top: "fc4"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc5"
+  type: "InnerProduct"
+  bottom: "fc4"
+  top: "fc5"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "fc5"
+  top: "fc6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc7"
+  type: "InnerProduct"
+  bottom: "fc6"
+  top: "fc7"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc8"
+  type: "InnerProduct"
+  bottom: "fc7"
+  top: "fc8"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc9"
+  type: "InnerProduct"
+  bottom: "fc8"
+  top: "fc9"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc10"
+  type: "InnerProduct"
+  bottom: "fc9"
+  top: "fc10"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc11"
+  type: "InnerProduct"
+  bottom: "fc10"
+  top: "fc11"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc12"
+  type: "InnerProduct"
+  bottom: "fc11"
+  top: "fc12"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc13"
+  type: "InnerProduct"
+  bottom: "fc12"
+  top: "fc13"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc14"
+  type: "InnerProduct"
+  bottom: "fc13"
+  top: "fc14"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc15"
+  type: "InnerProduct"
+  bottom: "fc14"
+  top: "fc15"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc16"
+  type: "InnerProduct"
+  bottom: "fc15"
+  top: "fc16"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc17"
+  type: "InnerProduct"
+  bottom: "fc16"
+  top: "fc17"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc18"
+  type: "InnerProduct"
+  bottom: "fc17"
+  top: "fc18"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc19"
+  type: "InnerProduct"
+  bottom: "fc18"
+  top: "fc19"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc20"
+  type: "InnerProduct"
+  bottom: "fc19"
+  top: "fc20"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc21"
+  type: "InnerProduct"
+  bottom: "fc20"
+  top: "fc21"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc22"
+  type: "InnerProduct"
+  bottom: "fc21"
+  top: "fc22"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc23"
+  type: "InnerProduct"
+  bottom: "fc22"
+  top: "fc23"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc24"
+  type: "InnerProduct"
+  bottom: "fc23"
+  top: "fc24"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc25"
+  type: "InnerProduct"
+  bottom: "fc24"
+  top: "fc25"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc26"
+  type: "InnerProduct"
+  bottom: "fc25"
+  top: "fc26"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc27"
+  type: "InnerProduct"
+  bottom: "fc26"
+  top: "fc27"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc28"
+  type: "InnerProduct"
+  bottom: "fc27"
+  top: "fc28"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc29"
+  type: "InnerProduct"
+  bottom: "fc28"
+  top: "fc29"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc30"
+  type: "InnerProduct"
+  bottom: "fc29"
+  top: "fc30"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc31"
+  type: "InnerProduct"
+  bottom: "fc30"
+  top: "fc31"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc32"
+  type: "InnerProduct"
+  bottom: "fc31"
+  top: "fc32"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc33"
+  type: "InnerProduct"
+  bottom: "fc32"
+  top: "fc33"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc34"
+  type: "InnerProduct"
+  bottom: "fc33"
+  top: "fc34"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc35"
+  type: "InnerProduct"
+  bottom: "fc34"
+  top: "fc35"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc36"
+  type: "InnerProduct"
+  bottom: "fc35"
+  top: "fc36"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc37"
+  type: "InnerProduct"
+  bottom: "fc36"
+  top: "fc37"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc38"
+  type: "InnerProduct"
+  bottom: "fc37"
+  top: "fc38"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc39"
+  type: "InnerProduct"
+  bottom: "fc38"
+  top: "fc39"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc40"
+  type: "InnerProduct"
+  bottom: "fc39"
+  top: "fc40"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc41"
+  type: "InnerProduct"
+  bottom: "fc40"
+  top: "fc41"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc42"
+  type: "InnerProduct"
+  bottom: "fc41"
+  top: "fc42"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc43"
+  type: "InnerProduct"
+  bottom: "fc42"
+  top: "fc43"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc44"
+  type: "InnerProduct"
+  bottom: "fc43"
+  top: "fc44"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc45"
+  type: "InnerProduct"
+  bottom: "fc44"
+  top: "fc45"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc46"
+  type: "InnerProduct"
+  bottom: "fc45"
+  top: "fc46"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc47"
+  type: "InnerProduct"
+  bottom: "fc46"
+  top: "fc47"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc48"
+  type: "InnerProduct"
+  bottom: "fc47"
+  top: "fc48"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc49"
+  type: "InnerProduct"
+  bottom: "fc48"
+  top: "fc49"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc50"
+  type: "InnerProduct"
+  bottom: "fc49"
+  top: "fc50"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc51"
+  type: "InnerProduct"
+  bottom: "fc50"
+  top: "fc51"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc52"
+  type: "InnerProduct"
+  bottom: "fc51"
+  top: "fc52"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc53"
+  type: "InnerProduct"
+  bottom: "fc52"
+  top: "fc53"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc54"
+  type: "InnerProduct"
+  bottom: "fc53"
+  top: "fc54"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc55"
+  type: "InnerProduct"
+  bottom: "fc54"
+  top: "fc55"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+layer {
+  name: "fc56"
+  type: "InnerProduct"
+  bottom: "fc55"
+  top: "fc56"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+  }
+}
+# layer {
+  # name: "fc57"
+  # type: "InnerProduct"
+  # bottom: "fc56"
+  # top: "fc57"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc58"
+  # type: "InnerProduct"
+  # bottom: "fc57"
+  # top: "fc58"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc59"
+  # type: "InnerProduct"
+  # bottom: "fc58"
+  # top: "fc59"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc60"
+  # type: "InnerProduct"
+  # bottom: "fc59"
+  # top: "fc60"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc61"
+  # type: "InnerProduct"
+  # bottom: "fc60"
+  # top: "fc61"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc62"
+  # type: "InnerProduct"
+  # bottom: "fc61"
+  # top: "fc62"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc63"
+  # type: "InnerProduct"
+  # bottom: "fc62"
+  # top: "fc63"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+# layer {
+  # name: "fc64"
+  # type: "InnerProduct"
+  # bottom: "fc63"
+  # top: "fc64"
+  # param {
+    # lr_mult: 1
+    # decay_mult: 1
+  # }
+  # param {
+    # lr_mult: 2
+    # decay_mult: 0
+  # }
+  # inner_product_param {
+    # num_output: 10000
+  # }
+# }
+
+layer {
+  name: "fclast"
+  type: "InnerProduct"
+  bottom: "fc56"
+  top: "fclast"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10000
+    weight_filler {
+      type: "gaussian"
+      std: 0.005
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.1
+    }
+  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "fclast"
+  bottom: "label"
+  top: "loss"
+}

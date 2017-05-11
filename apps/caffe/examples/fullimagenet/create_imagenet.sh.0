@@ -1,0 +1,115 @@
+#!/usr/bin/env sh
+# Create the imagenet lmdb inputs
+# N.B. set the path to the imagenet train + val data dirs
+
+TOOLS=build/tools
+
+TRAIN_DATA_ROOT=/panfs/probescratch/BigLearning/hengganc/data/imagenet/all/
+VAL_DATA_ROOT=/panfs/probescratch/BigLearning/hengganc/data/imagenet/all/
+
+# Set RESIZE=true to resize the images to 256x256. Leave as false if images have
+# already been resized using another tool.
+# RESIZE=false
+# if $RESIZE; then
+  # RESIZE_HEIGHT=256
+  # RESIZE_WIDTH=256
+# else
+  # RESIZE_HEIGHT=0
+  # RESIZE_WIDTH=0
+# fi
+
+# if [ ! -d "$TRAIN_DATA_ROOT" ]; then
+  # echo "Error: TRAIN_DATA_ROOT is not a path to a directory: $TRAIN_DATA_ROOT"
+  # echo "Set the TRAIN_DATA_ROOT variable in create_imagenet.sh to the path" \
+       # "where the ImageNet training data is stored."
+  # exit 1
+# fi
+
+# if [ ! -d "$VAL_DATA_ROOT" ]; then
+  # echo "Error: VAL_DATA_ROOT is not a path to a directory: $VAL_DATA_ROOT"
+  # echo "Set the VAL_DATA_ROOT variable in create_imagenet.sh to the path" \
+       # "where the ImageNet validation data is stored."
+  # exit 1
+# fi
+
+echo "Creating train from 0"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.0 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 1 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.0
+
+echo "Creating train from 1"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.1 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.1
+
+echo "Creating train from 2"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.2 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.2
+
+echo "Creating train from 3"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.3 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.3
+
+echo "Creating train from 4"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.4 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.4
+
+echo "Creating train from 5"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.5 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.5
+
+echo "Creating train from 6"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.6 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.6
+
+echo "Creating train from 7"
+
+GLOG_logtostderr=1 build/tools/convert_imageset \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train.shuffled.txt.7 \
+    /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/1part/train_lmdb \
+    --newdb 0 \
+    2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.7
+
+# echo "Creating val lmdb..."
+
+# GLOG_logtostderr=1 build/tools/convert_imageset \
+    # /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/all/ \
+    # /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/8parts/val.shuffled.txt.0 \
+    # /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/8parts/val_lmdb.0 \
+    # 2>&1 | tee /panfs/probescratch/BigLearning/hengganc/data/imagenet-all/output.txt.0
+
+echo "Done."

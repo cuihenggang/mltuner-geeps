@@ -1,0 +1,15 @@
+net: "examples/imagenet/8parts/train_val.prototxt.%"
+test_iter: 125
+test_interval: 100
+base_lr: 0.01
+lr_policy: "step"
+gamma: 0.1
+stepsize: 100000
+display: 5
+# max_iter: 50000
+max_iter: 1000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "examples/imagenet/8parts/caffenet_train.%"
+solver_mode: GPU

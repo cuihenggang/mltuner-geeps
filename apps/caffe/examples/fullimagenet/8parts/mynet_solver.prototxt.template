@@ -1,0 +1,28 @@
+net: "examples/fullimagenet/8parts/mynet_train_val.prototxt.%"
+test_iter: 12
+# test_iter: 12
+test_interval: 1000
+test_initialization: false
+snapshot_after_train: false
+# base_lr: 0.01
+base_lr: 0.0036
+# base_lr: 0.00125
+# base_lr: 0.0005
+lr_policy: "step"
+gamma: 0.1
+# stepsize: 100000
+# stepsize: 6250
+stepsize: 12500
+# stepsize: 400000
+display: 20
+# max_iter: 100000
+# max_iter: 40
+max_iter: 10
+momentum: 0.9
+# weight_decay: 0.0005
+# weight_decay: 0.00025
+weight_decay: 0.000125
+random_seed: 12345678
+snapshot: 1000000
+snapshot_prefix: "examples/fullimagenet/8parts/mynet_snapshot"
+solver_mode: GPU
