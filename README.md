@@ -36,7 +36,7 @@ make -j8
 ```
 
 
-## Caffe's CIFAR-10 example on two machines
+## CIFAR-10 example on two machines
 
 You can run Caffe distributedly across a cluster of machines with MLtuner-GeePS. In this section, we will demonstrate the steps to run Caffe's CIFAR-10 example on two machines.
 
@@ -65,8 +65,12 @@ When you have your machine file in ready, you can run the following command to d
 Our script will partition the datasets into two parts, one for each machine. You can then train an Inception network on it with this command:
 
 ```
-./examples/cifar10/2parts/train_inception.sh
+./examples/cifar10/2parts/train_inception.sh YOUR_OUTPUT_DIRECTORY
 ```
+
+
+## ImageNet with Inception-BN
+
 
 Please look at our [wiki](https://github.com/cuihenggang/geeps/wiki) for more details. Happy training!
 

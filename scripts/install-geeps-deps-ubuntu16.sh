@@ -8,3 +8,4 @@ sudo apt-get install -y --force-yes libtbb-dev
 sudo apt-get install -y --force-yes libzmq-dev
 sudo apt-get install -y --force-yes scons
 sudo apt-get install -y --force-yes pdsh
+sudo pip install --no-cache-dir hyperopt
