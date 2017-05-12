@@ -417,13 +417,19 @@ int train() {
     batch_size_spec.valid_vals.push_back(64);
     batch_size_spec.valid_vals.push_back(256);
     batch_size_spec.default_val = 3;
-  } else if (mltuner_config.app_name.find("imagenet") == 0) {
+  } else if (mltuner_config.app_name.find("googlenet") == 0) {
     batch_size_spec.valid_vals.push_back(2);
     batch_size_spec.valid_vals.push_back(4);
     batch_size_spec.valid_vals.push_back(8);
     batch_size_spec.valid_vals.push_back(16);
     batch_size_spec.valid_vals.push_back(32);
     batch_size_spec.default_val = 4;
+  } else if (mltuner_config.app_name.find("inceptionv3") == 0) {
+    batch_size_spec.valid_vals.push_back(2);
+    batch_size_spec.valid_vals.push_back(4);
+    batch_size_spec.valid_vals.push_back(8);
+    batch_size_spec.valid_vals.push_back(16);
+    batch_size_spec.default_val = 3;
   } else if (mltuner_config.app_name.find("rnn") == 0) {
     batch_size_spec.valid_vals.push_back(1);
     batch_size_spec.default_val = 0;

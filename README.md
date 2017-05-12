@@ -83,6 +83,17 @@ Once you have the data and configurations ready, you can train the model with:
 ./examples/imagenet/8parts/train_inception.sh YOUR_OUTPUT_DIRECTORY
 ```
 
+
+## ImageNet with Inception-v3
+
+WARNING: this part has not been thoroughly tested yet.
+
+Once you have the data and configurations ready, you can train the Inception-v3 model with:
+
+```
+./examples/imagenet/8parts/train_inception_v3.sh YOUR_OUTPUT_DIRECTORY
+```
+
 Happy training!
 
 
