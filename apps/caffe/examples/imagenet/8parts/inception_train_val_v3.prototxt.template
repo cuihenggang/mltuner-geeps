@@ -16,7 +16,7 @@ layer {
     mean_value: 123
   }
   data_param {
-    source: "/panfs/probescratch/BigLearning/hengganc/data/imagenet/8parts/train_lmdb.%"
+    source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/train_lmdb.%"
     batch_size: 32
     backend: LMDB
   }
@@ -37,7 +37,7 @@ layer {
     mean_value: 123
   }
   data_param {
-    source: "/panfs/probescratch/BigLearning/hengganc/data/imagenet/8parts-v0/val_lmdb.%"
+    source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/val_lmdb.%"
     batch_size: 32
     backend: LMDB
   }

@@ -62,17 +62,28 @@ When you have your machine file in ready, you can run the following command to d
 ./examples/cifar10/2parts/create_cifar10_pdsh.sh
 ```
 
-Our script will partition the datasets into two parts, one for each machine. You can then train an Inception network on it with this command:
+Our script will partition the datasets into two parts, one for each machine.
+
+The configurations for this experiment are specified in `examples/cifar10/2parts/ps_config_alexnet`, and you can refer to `tools/caffe_geeps.cpp` for the list of configurations that you can specify.
+
+You can then train the model with:
 
 ```
-./examples/cifar10/2parts/train_inception.sh YOUR_OUTPUT_DIRECTORY
+./examples/cifar10/2parts/train_alexnet.sh YOUR_OUTPUT_DIRECTORY
 ```
 
 
 ## ImageNet with Inception-BN
 
+The directory for ImageNet configuration files is `examples/imagenet/8parts`. Unfortunately, we don't have a script for you to prepare the ImageNet dataset, and you will have to prepare your own input data files and specify the path in `examples/imagenet/8parts/inception_train_val.prototxt.template`.
 
-Please look at our [wiki](https://github.com/cuihenggang/geeps/wiki) for more details. Happy training!
+Once you have the data and configurations ready, you can train the model with:
+
+```
+./examples/imagenet/8parts/train_inception.sh YOUR_OUTPUT_DIRECTORY
+```
+
+Happy training!
 
 
 ## Reference Paper

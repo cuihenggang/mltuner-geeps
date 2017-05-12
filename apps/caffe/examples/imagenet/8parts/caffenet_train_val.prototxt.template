@@ -15,12 +15,12 @@ layer {
     mean_value: 123
   }
   data_param {
-    # source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/train_lmdb.%"
-    source: "/scratch/data/imagenet/8parts/train_lmdb.%"
+    source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/train_lmdb.%"
+    # source: "/scratch/data/imagenet/8parts/train_lmdb.%"
     batch_size: 256
     backend: LMDB
-    # keylist: "/datasets/BigLearning/hengganc/data/imagenet/8parts/train.shuffled.keylist.%"
-    keylist: "/scratch/data/imagenet/8parts/train.shuffled.keylist.%"
+    keylist: "/datasets/BigLearning/hengganc/data/imagenet/8parts/train.shuffled.keylist.%"
+    # keylist: "/scratch/data/imagenet/8parts/train.shuffled.keylist.%"
     num_preshuffles: 0
   }
 }
@@ -40,12 +40,12 @@ layer {
     mean_value: 123
   }
   data_param {
-    # source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/val_lmdb.%"
-    source: "/scratch/data/imagenet/8parts/val_lmdb.%"
+    source: "/datasets/BigLearning/hengganc/data/imagenet/8parts/val_lmdb.%"
+    # source: "/scratch/data/imagenet/8parts/val_lmdb.%"
     batch_size: 256
     backend: LMDB
-    # keylist: "/datasets/BigLearning/hengganc/data/imagenet/8parts/val.keylist.%"
-    keylist: "/scratch/data/imagenet/8parts/val.keylist.%"
+    keylist: "/datasets/BigLearning/hengganc/data/imagenet/8parts/val.keylist.%"
+    # keylist: "/scratch/data/imagenet/8parts/val.keylist.%"
     num_preshuffles: 0
   }
 }
