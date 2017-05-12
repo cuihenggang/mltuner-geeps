@@ -16,8 +16,7 @@
 
 #include <glog/logging.h>
 
-// #include "include/lazy-table-module-types.hpp"
-#include "include/lazytable.hpp"
+#include "geeps.hpp"
 #include "common/common-utils.hpp"
 
 using std::vector;

@@ -16,7 +16,7 @@
 #include <string>
 #include <vector>
 
-#include "lazytable.hpp"
+#include "common-utils.hpp"
 #include "affinity.hpp"
 #include "portable-bytes.hpp"
 #include "zmq-util.hpp"

@@ -16,7 +16,8 @@
 
 #include <glog/logging.h>
 
-#include "lazytable-user-defined-types.hpp"
+#include "geeps.hpp"
+#include "geeps-user-defined-types.hpp"
 #include "common/internal-config.hpp"
 
 using std::string;

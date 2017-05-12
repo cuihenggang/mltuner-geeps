@@ -1,5 +1,5 @@
-#ifndef __lazytable_user_defined_types_hpp__
-#define __lazytable_user_defined_types_hpp__
+#ifndef __geeps_user_defined_types_hpp__
+#define __geeps_user_defined_types_hpp__
 
 /*
  * Copyright (C) 2013 by Carnegie Mellon University.
@@ -60,4 +60,4 @@ struct ArrayData {
 typedef ArrayData RowData;
 typedef ArrayData RowOpVal;
 
-#endif  // defined __lazytable_user_defined_types_hpp
+#endif  // defined __geeps_user_defined_types_hpp__

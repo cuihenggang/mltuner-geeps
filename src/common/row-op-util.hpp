@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "lazytable-user-defined-types.hpp"
+#include "geeps-user-defined-types.hpp"
 #include "portable-bytes.hpp"
 #include "common/gpu-util/math_functions.hpp"
 

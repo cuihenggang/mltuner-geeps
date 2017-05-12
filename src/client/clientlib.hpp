@@ -20,7 +20,6 @@
 #include <utility>
 #include <queue>
 
-#include "lazytable.hpp"
 #include "stats-tracker.hpp"
 #include "common/extended-utils.hpp"
 #include "common/router-handler.hpp"

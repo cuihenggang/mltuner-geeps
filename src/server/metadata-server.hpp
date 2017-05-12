@@ -12,8 +12,7 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include "lazytable-user-defined-types.hpp"
-#include "common/common-utils.hpp"
+#include "common/extended-utils.hpp"
 #include "server-encoder-decoder.hpp"
 
 using boost::shared_ptr;

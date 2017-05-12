@@ -23,9 +23,9 @@
 #include <set>
 #include <map>
 
+#include "geeps.hpp"
 #include "mltuner.hpp"
 // #include "include/lazy-table-module-types.hpp"
-#include "include/lazytable.hpp"
 #include "common/wire-protocol.hpp"
 #include "common/zmq-portable-bytes.hpp"
 #include "common/router-handler.hpp"

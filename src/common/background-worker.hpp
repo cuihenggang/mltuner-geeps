@@ -13,7 +13,7 @@
 #include <vector>
 #include <string>
 
-#include "lazytable-user-defined-types.hpp"
+#include "common-utils.hpp"
 #include "work-puller.hpp"
 
 class BackgroundWorker {

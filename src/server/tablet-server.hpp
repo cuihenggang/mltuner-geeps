@@ -24,7 +24,6 @@
 #include <map>
 #include <queue>
 
-#include "lazytable-user-defined-types.hpp"
 #include "common/extended-utils.hpp"
 #include "common/row-op-util.hpp"
 
