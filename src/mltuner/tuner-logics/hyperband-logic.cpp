@@ -18,6 +18,8 @@
 #include "mltuner/tunable-searchers/marginal-grid-searcher.hpp"
 #include "mltuner/tunable-searchers/marginal-hyperopt-searcher.hpp"
 
+#define ETA 3
+
 
 HyperbandLogic::HyperbandLogic(MltunerImpl *impl, const Config& config)
     : TunerLogic(impl, config) {
@@ -217,10 +219,11 @@ bool HyperbandLogic::get_new_setting() {
 }
 
 void HyperbandLogic::hyperband_start() {
-  K_ = 1;
-  LL_ = 0;
-  L_ = 1 << LL_;
-  CHECK_GE(K_ - L_, LL_);
+  smax_ = log(R) / log(ETA);
+  B_ = (smax_ + 1) * R_;
+  s_ = smax_;
+  cout << "hyperband_start:"
+       << " B_ = " << B_ << " s_ = " << s_ << endl;
   successive_halving_start();
 }
 
@@ -230,31 +233,33 @@ void HyperbandLogic::hyperband_update() {
     return;
   }
 
-  LL_++;
-  L_ = 1 << LL_;
-  if (K_ - L_ >= LL_) {
+  s_--;
+  if (s_ >= 0) {
     successive_halving_start();
     return;
   }
 
-  K_++;
-  LL_ = 0;
-  L_ = 1 << LL_;
-  CHECK_GE(K_ - L_, LL_);
-  successive_halving_start();
+  /* Hyperband finished */
+  cout << "Hyperband finished\n";
+  if (system("pdsh -R ssh -w h[1-7] \"pkill -9 geeps\"")) {
+    cerr << "Non-zero syscall return value\n";
+  }
+  if (system("pdsh -R ssh -w h0 \"pkill -9 geeps\"")) {
+    cerr << "Non-zero syscall return value\n";
+  }
+  exit(0);
 }
 
 void HyperbandLogic::successive_halving_start() {
-  k_ = 0;
-  int B = 2 << K_;
-  int n = 2 << L_;
-  int Sk = 2 << (L_ - k_);
-  r_ = B / Sk / L_;
+  n_ = B_ / R_ * power(ETA, s_) / (s_ + 1);
+  r_ = R_ / power(ETA, s_);
+  i_ = 0;
+  ni_ = n_ / power(ETA, i_);
+  ri_ = r_ * power(ETA, i_);
   cout << "successive_halving_start:"
-       << " K_ = " << K_ << " L_ = " << L_
-       << " k_ = " << k_ << " n = " << n << " r_ = " << r_ << endl;
+       << " n_ = " << n_ << " r_ = " << r_ << endl;
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n_; i++) {
     bool success = get_new_setting();
     CHECK(success);
     exp_info_map_[current_exp_info_.branch_id] = current_exp_info_;
@@ -283,7 +288,8 @@ bool HyperbandLogic::successive_halving_update() {
     }
   }
 
-  /* Kill half of the exps according to the peak accuracy */
+  /* Keep only the top k exps according to the peak accuracy */
+  int k = ni_ / ETA;
   Pairs pairs;
   PairCompare pair_compare;
   for (ExpInfoMap::iterator iter = exp_info_map_.begin();
@@ -294,20 +300,18 @@ bool HyperbandLogic::successive_halving_update() {
     pairs.push_back(Pair(accuracy, branch_id));
   }
   std::sort(pairs.begin(), pairs.end(), pair_compare);
-  for (int i = 0; i < pairs.size() / 2; i++) {
+  for (int i = k; i < pairs.size(); i++) {
     int branch_id = pairs[i].second;
     impl_->inactivate_branch(branch_id);
     exp_info_map_.erase(branch_id);
   }
 
-  k_++;
-  if (k_ <= L_ - 1) {
-    int B = 2 << K_;
-    int Sk = 2 << (L_ - k_);
-    r_ = B / Sk / L_;
+  i_++;
+  if (i_ <= s_) {
+    ni_ = n_ / power(ETA, i_);
+    ri_ = r_ * power(ETA, i_);
     cout << "successive_halving_update:"
-         << " K_ = " << K_ << " L_ = " << L_
-         << " k_ = " << k_ << " r_ = " << r_ << endl;
+         << " ni_ = " << ni_ << " ri_ = " << ri_ << endl;
     run_exps();
     return true;
   }
@@ -327,7 +331,7 @@ void HyperbandLogic::run_exps() {
        iter != exp_info_map_.end(); iter++) {
     int branch_id = iter->first;
     ExpInfo& exp_info = iter->second;
-    if (exp_info.epoch < r_) {
+    if (exp_info.epoch < ri_) {
       training_branch_id_ = branch_id;
       impl_->run_one_epoch(branch_id);
       return;

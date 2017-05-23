@@ -52,11 +52,15 @@ class HyperbandLogic : public TunerLogic {
   int testing_branch_id_;
 
   /* HyperBand states */
-  int K_;
-  int LL_;
-  int L_;
-  int k_;
+  int R_;
+  int B_;
+  int smax_;
+  int s_;
+  int n_;
   int r_;
+  int i_;
+  int ni_;
+  int ri_;
 
  public:
   HyperbandLogic(
