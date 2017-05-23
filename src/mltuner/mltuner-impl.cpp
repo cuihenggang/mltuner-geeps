@@ -44,6 +44,8 @@ MltunerImpl::MltunerImpl(
     logic_ = make_shared<TupaqLogic>(this, config_);
   } else if (config_.mltuner_config.tuner_logic == "hyperband") {
     logic_ = make_shared<HyperbandLogic>(this, config_);
+  } else if (config_.mltuner_config.tuner_logic == "hyperband-infinite") {
+    logic_ = make_shared<HyperbandInfiniteLogic>(this, config_);
   } else {
     CHECK(0) << " unknown tuner_logic = "
         << config_.mltuner_config.tuner_logic;

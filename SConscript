@@ -65,6 +65,7 @@ def build_all(variant):
     src_files.append('src/mltuner/tuner-logics/spearmint-logic.cpp')
     src_files.append('src/mltuner/tuner-logics/tupaq-logic.cpp')
     src_files.append('src/mltuner/tuner-logics/hyperband-logic.cpp')
+    src_files.append('src/mltuner/tuner-logics/hyperband-infinite-logic.cpp')
     src_files.append('src/mltuner/tunable-searchers/spearmint-searcher.cpp')
     src_files.append('src/mltuner/tunable-searchers/hyperopt-searcher.cpp')
     src_files.append('src/mltuner/tunable-searchers/grid-searcher.cpp')
