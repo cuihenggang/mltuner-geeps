@@ -15,6 +15,7 @@
 #include "tuner-logics/spearmint-logic.hpp"
 #include "tuner-logics/tupaq-logic.hpp"
 #include "tuner-logics/hyperband-logic.hpp"
+#include "tuner-logics/hyperband-infinite-logic.hpp"
 
 using std::string;
 using std::vector;

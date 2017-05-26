@@ -114,6 +114,7 @@ struct MltunerConfig {
   double searching_stop_threshold;
   int grid_size;
   int shuffle_grid;
+  int hyperband_R;
   double print_interval;
 
   TunableSpecs tunable_specs;

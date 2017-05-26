@@ -332,6 +332,10 @@ void parse_config_file(caffe::PsConfig& ps_config) {
     ("hardcoded_lr_decay",
      po::value<float>(&(ps_config.geeps_config.mltuner_config.tunable_for_train.lr_decay))
      ->default_value(std::numeric_limits<float>::quiet_NaN()),
+     "")
+    ("hyperband_R",
+     po::value<int>(&(ps_config.geeps_config.mltuner_config.hyperband_R))
+     ->default_value(-1),
      "");
   std::ifstream config_in(FLAGS_ps_config.c_str());
   CHECK(config_in);

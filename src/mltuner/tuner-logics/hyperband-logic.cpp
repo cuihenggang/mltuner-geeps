@@ -20,9 +20,9 @@
 
 #define ETA 3
 
-
 HyperbandLogic::HyperbandLogic(MltunerImpl *impl, const Config& config)
     : TunerLogic(impl, config) {
+  R_ = config.mltuner_config.hyperband_R;
 }
 
 void HyperbandLogic::make_branch_decisions() {
@@ -219,7 +219,8 @@ bool HyperbandLogic::get_new_setting() {
 }
 
 void HyperbandLogic::hyperband_start() {
-  smax_ = log(R) / log(ETA);
+  CHECK_GT(R_, 0);
+  smax_ = log(R_) / log(ETA);
   B_ = (smax_ + 1) * R_;
   s_ = smax_;
   cout << "hyperband_start:"
@@ -251,11 +252,11 @@ void HyperbandLogic::hyperband_update() {
 }
 
 void HyperbandLogic::successive_halving_start() {
-  n_ = B_ / R_ * power(ETA, s_) / (s_ + 1);
-  r_ = R_ / power(ETA, s_);
+  n_ = B_ / R_ * pow(ETA, s_) / (s_ + 1);
+  r_ = R_ / pow(ETA, s_);
   i_ = 0;
-  ni_ = n_ / power(ETA, i_);
-  ri_ = r_ * power(ETA, i_);
+  ni_ = n_ / pow(ETA, i_);
+  ri_ = r_ * pow(ETA, i_);
   cout << "successive_halving_start:"
        << " n_ = " << n_ << " r_ = " << r_ << endl;
 
@@ -308,8 +309,8 @@ bool HyperbandLogic::successive_halving_update() {
 
   i_++;
   if (i_ <= s_) {
-    ni_ = n_ / power(ETA, i_);
-    ri_ = r_ * power(ETA, i_);
+    ni_ = n_ / pow(ETA, i_);
+    ri_ = r_ * pow(ETA, i_);
     cout << "successive_halving_update:"
          << " ni_ = " << ni_ << " ri_ = " << ri_ << endl;
     run_exps();
