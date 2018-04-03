@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
-MLtuner-GeePS is an extended version of [GeePS](https://github.com/cuihenggang/geeps) with MLtuner support. MLtuner is a lightweight module that automatically tunes the training hyperparameters of distributed ML training (including learning rate, momentum, batch size, data staleness, etc).
+MLtuner-GeePS is an extended version of [GeePS](https://github.com/cuihenggang/geeps) with MLtuner support. MLtuner is a lightweight module that automatically tunes the training hyperparameters for distributed ML training (including learning rate, momentum, batch size, data staleness, etc).
 
 ## Download and build MLtuner-GeePS and Caffe application
 
@@ -100,8 +100,7 @@ Happy training!
 
 Henggang Cui, Gregory R. Ganger, and Phillip B. Gibbons.
 [MLtuner: System Support for Automatic Machine Learning Tuning](https://cuihenggang.github.io/archive/paper/[arxiv]mltuner.pdf).
-CMU Parallel Data Lab Technical Report 2016
-arXiv preprint 1803.07445
+arXiv preprint 1803.07445.
 
 Henggang Cui, Hao Zhang, Gregory R. Ganger, Phillip B. Gibbons, and Eric P. Xing.
 [GeePS: Scalable Deep Learning on Distributed GPUs with a GPU-Specialized Parameter Server](https://cuihenggang.github.io/archive/paper/[eurosys16]geeps.pdf).
