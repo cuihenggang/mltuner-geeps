@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
-[MLtuner-GeePS](https://cuihenggang.github.io/archive/paper/[arxiv]mltuner.pdf) is an extended version of [GeePS](https://github.com/cuihenggang/geeps) with MLtuner support. MLtuner is a lightweight module that automatically tunes the training hyperparameters for distributed ML training (including learning rate, momentum, batch size, data staleness, etc).
+MLtuner-GeePS is an extended version of [GeePS](https://github.com/cuihenggang/geeps) with automatic training hyperparameter tuning support. It includes a lightweight [MLtuner](https://cuihenggang.github.io/archive/paper/[arxiv]mltuner.pdf) module that automatically tunes the training hyperparameters for distributed ML training (including learning rate, momentum, batch size, data staleness, etc).
 
 ## Download and build MLtuner-GeePS and Caffe application
 
